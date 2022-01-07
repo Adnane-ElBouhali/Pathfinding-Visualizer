@@ -48,3 +48,17 @@ ul {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+#board td {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgb(255, 0, 0);
+    background: rgb(94, 84, 84);
+}
+
+.container-fluid {
+    background-color: rgb(94, 84, 84);
+}
+
+#mainText {
+    text-decoration: dashed;
+}
