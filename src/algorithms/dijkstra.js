@@ -5,6 +5,10 @@ export function dijkstra(grid, startNode, finishNode) {
   while (!!unvisitedNodes.length) {
     sortNodesByDistance(unvisitedNodes);
     const closestNode = unvisitedNodes.shift();
+    // Sautiller les murs 
+    if (closestNode.isWall) continue;
+    // Si le noeud le plus contigu est distant d'une infinité : Arrêt!
+    if (closestNode.distance === Infinity) return visitedNodesInOrder;
     closestNode.isVisited = true;
     visitedNodesInOrder.push(closestNode);
     if (closestNode === finishNode) return visitedNodesInOrder;
@@ -43,6 +47,7 @@ function getAllNodes(grid) {
   return nodes;
 }
 
+// N'est appelée qu'après la méthode dijkstra plus haut
 export function getNodesInShortestPathOrder(finishNode) {
   const nodesInShortestPathOrder = [];
   let currentNode = finishNode;
