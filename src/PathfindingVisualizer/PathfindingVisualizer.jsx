@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Node from './Node/Node';
+import './PathfindingVisualizer.css';
 import { dijkstra, getNodesInShortestPathOrder } from '../algorithms/dijkstra';
 
 const START_NODE_ROW = 10;
@@ -15,4 +16,10 @@ export default class PathfindingVisualizer extends Component {
       mouseIsPressed: false,
     };
   }
+  
+  componentDidMount() {
+    const grid = getInitialGrid();
+    this.setState({ grid });
+  }
+  
 }
